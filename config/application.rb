@@ -60,5 +60,9 @@ module Mopxcms
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # reload active_cms autmatically, remove on production
+    config.autoload_paths += %W(#{config.root}/../active_cms/lib)
+    ActiveSupport::Dependencies.explicitly_unloadable_constants << 'ActiveCms::Engine'
   end
 end

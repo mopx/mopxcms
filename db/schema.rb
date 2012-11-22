@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121224415) do
+ActiveRecord::Schema.define(:version => 20121121230229) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -27,6 +27,47 @@ ActiveRecord::Schema.define(:version => 20121121224415) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "active_cms_assets", :force => true do |t|
+    t.string   "data_file_name"
+    t.string   "data_uid",                     :null => false
+    t.string   "data_type"
+    t.integer  "data_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type", :limit => 30
+    t.string   "type",           :limit => 30
+    t.integer  "data_width"
+    t.integer  "data_height"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "active_cms_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "active_cms_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "active_cms_pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "skip"
+    t.string   "redirect"
+    t.boolean  "menu"
+    t.string   "meta_title"
+    t.string   "meta_keywords"
+    t.text     "meta_description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "slug"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+  end
+
+  add_index "active_cms_pages", ["depth"], :name => "index_active_cms_pages_on_depth"
+  add_index "active_cms_pages", ["lft"], :name => "index_active_cms_pages_on_lft"
+  add_index "active_cms_pages", ["parent_id"], :name => "index_active_cms_pages_on_ancestry"
+  add_index "active_cms_pages", ["parent_id"], :name => "index_active_cms_pages_on_parent_id"
+  add_index "active_cms_pages", ["rgt"], :name => "index_active_cms_pages_on_rgt"
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -4,8 +4,9 @@ gem 'rails', '3.2.8'
 
 gem 'mysql2'
 
-# user authentication
+# user authentication & authorization
 gem 'devise'
+gem 'cancan'
 
 # templates
 gem 'haml'
@@ -16,8 +17,9 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem 'sass-rails',   '~> 3.2.3'
 
 # CMS
-# gem 'active_cms', :git => 'git://github.com/geisters/active_cms.git'
-# gem 'awesome_nested_set'
+# gem 'active_cms', :require => 'active_cms', :git => 'git://github.com/geisters/active_cms.git'
+gem 'active_cms', :path => 'vendor/gems/active_cms'
+gem 'awesome_nested_set'
 
 # Gems used only for assets and not required
 # in production environments by default.
