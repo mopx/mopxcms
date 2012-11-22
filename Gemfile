@@ -17,16 +17,15 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem 'sass-rails',   '~> 3.2.3'
 
 # CMS
-# gem 'active_cms', :require => 'active_cms', :git => 'git://github.com/geisters/active_cms.git'
-gem 'active_cms', :path => 'vendor/gems/active_cms'
+gem 'active_cms', :git => 'git://github.com/mopx/active_cms.git'
+# gem 'active_cms', :path => 'vendor/gems/active_cms'
 gem 'awesome_nested_set'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  # gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  # gem 'twitter-bootstrap-rails', '2.1.4'
+  gem 'twitter-bootstrap-rails'
   gem 'less-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes

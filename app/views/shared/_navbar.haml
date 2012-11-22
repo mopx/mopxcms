@@ -1,0 +1,15 @@
+%a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+  %span.icon-bar
+  %span.icon-bar
+  %span.icon-bar
+= link_to "mopxcms", root_path, :class => "brand"
+.container.nav-collapse
+  %ul.nav
+    - for menu_item in main_menu do
+      %li= link_to menu_item[0], menu_item[1]
+  %ul.nav.pull-right
+    - if user_signed_in?
+      %li= link_to t("header.logout"), destroy_user_session_path, :method => :delete
+    - else
+      %li= link_to t("header.login"), new_user_session_path
+      %li= link_to t("header.signup"), new_user_registration_path

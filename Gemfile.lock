@@ -1,5 +1,6 @@
-PATH
-  remote: vendor/gems/active_cms
+GIT
+  remote: git://github.com/mopx/active_cms.git
+  revision: 69a4270c39c5113c81e03edf04a571f5e7bbbbe6
   specs:
     active_cms (0.0.391)
       ancestry
@@ -187,6 +188,11 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.1.4)
+      actionpack (>= 3.1)
+      less-rails (~> 2.2.3)
+      railties (>= 3.1)
+      therubyracer (>= 0.10.2)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -221,5 +227,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   therubyracer
   thin
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn
