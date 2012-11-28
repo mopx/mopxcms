@@ -61,9 +61,14 @@ module Mopxcms
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # haml as default template language
     config.generators do |g|
       g.template_engine :haml
     end
+
+    # less as default css precompiler
+    config.app_generators.stylesheet_engine :less # no effect
+    config.sass.preferred_syntax = :less # weird hack https://github.com/metaskills/less-rails/issues/42
 
   end
 end

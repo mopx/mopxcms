@@ -36,7 +36,7 @@ module ApplicationHelper
 
   # move to a better place, and cache all
   def main_menu
-    pages = ActiveCms::Page.all
+    pages = Page.all
     pages.map{ |x| [x.title, page_path(x)] }
   end
 
