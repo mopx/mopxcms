@@ -50,10 +50,6 @@ ActiveRecord::Schema.define(:version => 20121128180844) do
     t.string   "title"
     t.string   "slug"
     t.text     "body"
-    t.integer  "parent_id"
-    t.integer  "menu"
-    t.string   "redirect"
-    t.string   "meta_title"
     t.string   "meta_keywords"
     t.text     "meta_description"
     t.datetime "created_at",       :null => false

@@ -62,4 +62,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end

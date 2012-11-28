@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  attr_accessible :body, :menu, :meta_description, :meta_keywords, :meta_title, :parent_id, :redirect, :slug, :title
+  attr_accessible :title, :slug, :body, :meta_keywords, :meta_description
 
   extend FriendlyId
   friendly_id :make_slug, :use => :slugged

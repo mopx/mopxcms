@@ -26,6 +26,19 @@ module ApplicationHelper
     "#{controller.controller_name}_#{controller.action_name}"
   end
 
+  # TODO: put this configuration on the database
+  def current_site
+    HashWithIndifferentAccess.new({
+      :site_title => "mopxcms",
+      :meta_keywords => "hola",
+      :meta_description => "adios"
+    })
+  end
+
+  def site_title
+    @title.present? ? @title + " | " + current_site['site_title'] : current_site['site_title']
+  end
+
   def site_link(site)
     link_to site.name, "http://#{site.url}"
   end
