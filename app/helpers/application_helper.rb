@@ -85,6 +85,7 @@ module ApplicationHelper
       html2 << content_tag(:li, :class => "menu-item menu-item-#{parent.id}") do
         nav_link(parent, false, second_level)
       end
+      html2 << content_tag(:li, "", :class => "divider")
       parent.children.collect do |item|
         dropdown = true if item.children.size > 0
         classes = dropdown ? "menu-item menu-item-#{item.id} dropdown-submenu" : "menu-item menu-item-#{item.id}"
