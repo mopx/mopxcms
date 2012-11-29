@@ -3,7 +3,7 @@ class MenuItem < ActiveRecord::Base
 
   belongs_to :page
   belongs_to :menu
-  attr_accessible :title, :redirect, :parent_id
+  attr_accessible :title, :redirect, :parent_id, :page_id, :menu_id
 
   def link
   	if self.redirect.present?

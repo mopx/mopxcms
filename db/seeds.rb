@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+page = Page.create!(:title => "Home", :body => "Hello World!")
+menu = Menu.create!(:name => "main_menu", :display_name => "Main Menu")
+menu_item = MenuItem.create!(:title => page.title, :page_id => page.id, :menu_id => menu.id)

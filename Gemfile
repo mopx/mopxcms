@@ -1,7 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'mysql2'
+
+# choose your flavor
+group :development do
+  gem 'mysql2'
+end
+
+group :production do
+  gem 'pg'
+end
 
 # user authentication & authorization
 gem 'devise'
@@ -9,7 +17,7 @@ gem 'cancan'
 
 # templates
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'less-rails'
 
 # javascript

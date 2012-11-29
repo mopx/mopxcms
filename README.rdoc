@@ -6,4 +6,11 @@ This is a very early version, and a work in progress. DO NOT USE THIS ON PRODUCT
 
 == Testing
 
-Run bundle exec rake spec:requests
+$ bundle exec rake spec:requests
+
+== Heroku
+
+$ heroku apps:create name-of-your-app
+$ git push heroku master
+$ heroku run rake db:migrate && rake db:seed
+$ heroku addons:add sendgrid:starter
