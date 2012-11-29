@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+	has_many :menu_items
   attr_accessible :title, :slug, :body, :meta_keywords, :meta_description
 
   extend FriendlyId

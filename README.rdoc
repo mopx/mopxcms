@@ -1,5 +1,9 @@
-== mopxcms
+== mopxcms v0.1
 
 A simple Rails starter app configured with a CMS, using Twitter Bootstrap, ActiveAdmin, Devise and CanCan.
 
-This is a very early version, and a work in progress.
+This is a very early version, and a work in progress. DO NOT USE THIS ON PRODUCTION!
+
+== Testing
+
+Run bundle exec rake spec:requests

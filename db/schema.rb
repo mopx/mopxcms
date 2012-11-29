@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128180844) do
+ActiveRecord::Schema.define(:version => 20121128233812) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,31 @@ ActiveRecord::Schema.define(:version => 20121128180844) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "menu_items", :force => true do |t|
+    t.string   "title"
+    t.integer  "page_id"
+    t.string   "redirect"
+    t.integer  "menu_id",    :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "menu_items", ["menu_id"], :name => "index_menu_items_on_menu_id"
+  add_index "menu_items", ["page_id"], :name => "index_menu_items_on_page_id"
+  add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
+
+  create_table "menus", :force => true do |t|
+    t.string   "name",         :null => false
+    t.string   "display_name", :null => false
+    t.text     "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "title"

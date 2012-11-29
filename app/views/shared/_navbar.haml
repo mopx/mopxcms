@@ -4,9 +4,7 @@
   %span.icon-bar
 = link_to "mopxcms", root_path, :class => "brand"
 .container.nav-collapse
-  %ul.nav
-    - for menu_item in main_menu do
-      %li= link_to menu_item[0], menu_item[1]
+  = get_menu("main_menu", "nav")
   %ul.nav.pull-right
     - if user_signed_in?
       %li= link_to t("header.logout"), destroy_user_session_path, :method => :delete

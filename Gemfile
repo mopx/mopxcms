@@ -22,8 +22,7 @@ gem 'sass-rails',   '~> 3.2.3'
 
 # CMS
 gem 'friendly_id'
-
-# gem 'awesome_nested_set'
+gem 'awesome_nested_set'
 
 # Gems used only for assets and not required
 # in production environments by default.
