@@ -5,12 +5,24 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
+  has_many :user_roles
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
 
   def display_name
     self.email || "#{self.class}: #{self.id}"
+  end
+
+  # TODO: cache this
+  def roles
+    self.user_roles.map{ |r| r.role }
+  end
+
+  def role_symbols
+    roles.map(&:to_sym)
+  end
+
+  def has_role?(role)
+    self.roles.include?(role)
   end
 
 end
