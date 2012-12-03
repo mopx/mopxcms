@@ -1,0 +1,35 @@
+en:
+  active_admin:
+    new_users: New users
+    history: History
+    versions:
+      title: Versions
+      version: Version
+      latest_version: Latest Version
+      viewing_version: Viewing Version
+      no_versions: No versions yet
+      go_to_current_version: Go to current version
+      go_to_previous_version: Go to previous version
+      restore_a_version: Restore a version
+      restore: Restore
+    modified_by_with_link_date: "Modified by %{user_link} %{time_ago} ago"
+    recently_updated_content: Recently Updated Content
+    item: Item
+    type: Type
+    created_at: Created at
+    modified_at: Modified at
+    modified_by: Modified by
+    responsible: Responsible
+    restored: Restored
+    destroyed: Destroyed
+    footer:
+      developed_by: Developed by
+    pages:
+      title: Pages
+      url: URL
+      formatted_with_textile: "Formatted with Textile. %{reference_link}"
+      reference_guide: Reference Guide
+      seo_keywords: "SEO: Comma separated keywords"
+      seo_description: "SEO: Description"
+    users:
+      title: Users

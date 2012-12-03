@@ -1,5 +1,5 @@
-ActiveAdmin.register AdminUser do     
-  menu :priority => 1, :parent => I18n.t("active_admin.users.title")
+ActiveAdmin.register User do     
+  menu :priority => 2, :parent => I18n.t("active_admin.users.title")
 
   index do                            
     column :email                     
@@ -12,7 +12,7 @@ ActiveAdmin.register AdminUser do
   filter :email                       
 
   form do |f|                         
-    f.inputs "Admin Details" do       
+    f.inputs "User Details" do       
       f.input :email                  
       f.input :password               
       f.input :password_confirmation  

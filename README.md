@@ -8,7 +8,9 @@ This is a very early version, and a work in progress. DO NOT USE THIS ON PRODUCT
 Testing
 -------------------------
 
+<pre>
 $ bundle exec rake spec:requests
+</pre>
 
 Heroku Instructions
 -------------------------

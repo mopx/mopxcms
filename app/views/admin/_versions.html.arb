@@ -1,0 +1,53 @@
+if !resource.versions.nil? && resource.versions.length > 0
+  current_version = (params[:version] || resource.versions.length).to_i
+
+  if !params[:version].blank? || params[:version].to_i > 1
+    h3 "#{I18n.t("active_admin.versions.viewing_version")}: #{current_version}"
+    ul do
+      li do
+        "<strong>#{I18n.t("active_admin.created_at")}</strong>: #{resource.versions[(params[:version].to_i - 1)].created_at}".html_safe
+      end
+      current_version_user = AdminUser.find(resource.versions[(params[:version].to_i - 1)].whodunnit)
+      li do 
+      "<strong>#{I18n.t("active_admin.modified_by")}</strong>: #{link_to(current_version_user.display_name, current_version_user)}".html_safe
+      end
+    end
+    para link_to I18n.t("active_admin.versions.go_to_current_version"), { :version => nil }, :class => "button"
+  end
+
+  h3 "#{I18n.t("active_admin.versions.latest_version")}: #{resource.versions.length}"
+  ul do
+    li do
+      "<strong>#{I18n.t("active_admin.created_at")}</strong>: #{resource.versions.last.created_at}".html_safe
+    end
+    current_version_user = AdminUser.find(resource.versions.last.whodunnit)
+    li do 
+      "<strong>#{I18n.t("active_admin.modified_by")}</strong>: #{link_to(current_version_user.display_name, current_version_user)}".html_safe
+    end
+  end
+
+  if current_version > 1 || !params[:version]
+    para link_to I18n.t("active_admin.versions.go_to_previous_version"), {:version => current_version - 1}, :class => "button"
+  end
+
+  table_for(resource.versions.reverse) do |t|
+    t.column(I18n.t("active_admin.versions.restore_a_version")) do |v|
+      html = ""
+      version = resource.get_version(v.id)
+      unless version == current_version or version == resource.versions.length
+        user = AdminUser.find(v.whodunnit) rescue AdminUser.new
+        user_link = link_to user.display_name, admin_admin_user_path(user)
+        html << "<strong>#{I18n.t("active_admin.versions.version")}: #{version}</strong>"
+        html << "<br />"
+        html << I18n.t("active_admin.modified_by_with_link_date", :user_link => user_link, :time_ago => time_ago_in_words(v.created_at)).html_safe
+        html << "<br />"
+        html << link_to(I18n.t("active_admin.view"), admin_page_path(:id => resource.id, :version => version))
+        html << " | "
+        html << link_to(I18n.t("active_admin.versions.restore"), restore_admin_page_path(:id => resource.id, :version_id => v.id), :method => :post)
+      end
+      html.html_safe
+    end
+  end
+else
+  span I18n.t("active_admin.versions.no_versions")
+end

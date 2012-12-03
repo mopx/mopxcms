@@ -10,6 +10,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
       mail (~> 2.4.4)
@@ -151,6 +152,9 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
+    paper_trail (2.6.3)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     pg (0.14.1)
     poltergeist (1.0.2)
       capybara (~> 1.1)
@@ -249,6 +253,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   activeadmin
   awesome_nested_set
   cancan
@@ -266,6 +271,7 @@ DEPENDENCIES
   less-rails
   meta_search (>= 1.1.0.pre)
   mysql2
+  paper_trail
   pg
   poltergeist
   quiet_assets
