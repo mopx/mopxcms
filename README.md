@@ -19,5 +19,7 @@ Heroku Instructions
 $ heroku apps:create name-of-your-app
 $ git push heroku master
 $ heroku run rake db:migrate && rake db:seed
+$ heroku config:add MAIL_HOST=name-of-your-app.herokuapp.com
+$ heroku config:add ADMIN_EMAIL="Your name <admin@example.com>"
 $ heroku addons:add sendgrid:starter
 </pre>
