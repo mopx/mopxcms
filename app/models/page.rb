@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
   include Rails.application.routes.url_helpers # neeeded for _path helpers to work in models
   has_paper_trail
 
-  has_many :menu_items
+  has_many :menu_items, :dependent => :destroy
   attr_accessible :title, :slug, :body, :meta_keywords, :meta_description
 
   extend FriendlyId

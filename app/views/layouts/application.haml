@@ -28,11 +28,12 @@
             .pagination-top
               = yield(:pagination)
       .row-fluid
-        .span3
-          .well.sidebar-nav
-            = render :partial => "pages/sidebar"
         .span9
           = yield    
+        .span3
+          .sidebar-nav
+            = render :partial => "pages/sidebar"
       %footer
-        %p &copy; Company 2012
+        %p
+          = "© 2012 #{current_site['site_title']}."
     = javascript_include_tag "application"

@@ -78,6 +78,44 @@ body.active_admin {
         font-family: $BreeSerif;
       }
     }
+    #menu_items {
+      ul {
+        margin: 0 0 10px 0;
+        padding: 0;
+        width: 300px;
+        li {
+          padding: 4px 10px;
+          margin-top: 5px;
+          list-style: none;
+          border: 1px solid #ddd;
+          background-color: #fff;
+          box-shadow: 1px 1px 2px 0 #ddd;
+          -moz-box-shadow: 1px 1px 2px 0 #ddd;
+          -webkit-box-shadow: 1px 1px 2px 0 #ddd;
+          -o-box-shadow: 1px 1px 2px 0 #ddd;
+          -ms-box-shadow: 1px 1px 2px 0 #ddd;
+          .title {
+            cursor: move;
+            font-weight: bold;
+            font-size: 14px;
+          }
+          .delete {
+            float: right;
+            a {
+              font-weight: bold;
+              text-decoration: none;
+              font-size: 18px;
+              &:hover {
+                color: #800;
+              }
+            }
+          }
+          .edit {
+            font-size: 10px;
+          }
+        }
+      }
+    }
   }
   #footer {
     padding: 0 30px 50px;

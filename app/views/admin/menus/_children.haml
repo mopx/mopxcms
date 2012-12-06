@@ -1,0 +1,10 @@
+%ul
+  - item.children.each do |child|
+    %li{:id => "menu_item_#{child.id}"}
+      %span.delete
+        = link_to "×", admin_menu_item_path(child), :method => :delete, :confirm => I18n.t("active_admin.are_you_sure")
+      %span.title
+        = child.title
+      %span.edit
+        = link_to I18n.t("active_admin.menus.edit_item"), edit_admin_menu_item_path(child)
+      = render 'admin/menus/children', :item => child unless child.leaf?

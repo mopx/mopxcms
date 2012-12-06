@@ -2,6 +2,7 @@ en:
   active_admin:
     new_users: New users
     history: History
+    are_you_sure: Are you sure?
     versions:
       title: Versions
       version: Version
@@ -34,3 +35,11 @@ en:
     users:
       title: Users
       user_details: User Details
+    menus:
+      title: Menus
+      items: Items
+      add_item: Add item
+      edit_item: Edit
+      save: Save
+      successfully_saved: Successfully saved the menu
+      error_saving: Error saving the menu

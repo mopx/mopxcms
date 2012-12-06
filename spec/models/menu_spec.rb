@@ -1,5 +1,11 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe Menu do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+describe Menu do
+
+  it "creates empty menu" do
+  	menu_name = "El Super Menu"
+    menu = FactoryGirl.create(:menu, :display_name => menu_name)
+    menu.name.should == menu_name.parameterize('_')
+  end
+
+end
