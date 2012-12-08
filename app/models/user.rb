@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_roles
+  has_many :settings
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   def display_name
