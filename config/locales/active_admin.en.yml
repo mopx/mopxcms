@@ -48,7 +48,7 @@ en:
       title: Settings
       tagline: Tagline
       site_configuration: Site Configuration
-      site_title: Site Name
+      site_name: Site Name
       default_language: Default Language
       seo_keywords: Meta Keywords
       seo_description: Meta Description
