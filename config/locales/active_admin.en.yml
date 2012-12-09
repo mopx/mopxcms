@@ -43,3 +43,28 @@ en:
       save: Save
       successfully_saved: Successfully saved the menu
       error_saving: Error saving the menu
+    settings:
+      meta_seo: Meta / SEO
+      title: Settings
+      tagline: Tagline
+      site_configuration: Site Configuration
+      site_title: Site Name
+      default_language: Default Language
+      seo_keywords: Meta Keywords
+      seo_description: Meta Description
+      mailer_sender: Mailer Sender
+      support_email: Support Email
+      api_keys: API Keys
+      mailers: Mailers
+      robots_txt: robots.txt
+      robots_hint: See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+      twitter_key: Twitter Key
+      twitter_secret: Twitter Secret
+      facebook_key: Facebook Key
+      facebook_secret: Facebook Secret
+      aws_key: AWS Key
+      aws_secret: AWS Secret
+      save_settings: Save Settings
+      successfully_saved: Successfully saved the settings
+      error_saving: Error saving the settings
+

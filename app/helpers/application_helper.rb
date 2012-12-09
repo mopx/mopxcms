@@ -26,25 +26,25 @@ module ApplicationHelper
     "#{controller.controller_name}_#{controller.action_name}"
   end
 
-  # TODO: put this configuration on the database
   def current_site
     HashWithIndifferentAccess.new({
-      :site_title => "mopxcms",
-      :meta_keywords => "hola",
-      :meta_description => "adios"
+      :site_title => Setting.get("site_name", nil, true),
+      :tagline => Setting.get("tagline", nil, true),
+      :meta_keywords => Setting.get("seo_keywords", nil, true),
+      :meta_description => Setting.get("seo_description", nil, true)
     })
   end
 
-  def site_title
-    @title.present? ? @title + " | " + current_site['site_title'] : current_site['site_title']
+  def page_title
+    @title.present? ? @title + " | " + current_site['site_title'] : current_site['site_title'] + " | " + current_site['tagline']
   end
 
   def site_link(site)
-    link_to site.name, "http://#{site.url}"
+    link_to current_site['site_title'], "http://#{site.url}"
   end
 
   def support_link(site)
-    mail_to site.support_email
+    mail_to Setting.get("support_email", nil, true)
   end
 
 end

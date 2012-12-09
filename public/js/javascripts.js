@@ -13,6 +13,9 @@ $(function() {
     toleranceElement: '> span'
   });
   $("#sortable").disableSelection();
+
+  $(".autogrow").autoGrow();
+
 });
 
 function updatePositions(path) {

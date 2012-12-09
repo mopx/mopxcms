@@ -1,0 +1,73 @@
+= semantic_form_for 'site_settings', :url => save_settings_admin_settings_path do |f|
+  = f.inputs I18n.t("active_admin.settings.meta_seo") do
+
+    = f.input "site_name", 
+      :label => I18n.t("active_admin.settings.site_name"), 
+      :input_html => { :value => Setting.get("site_name", nil, true) }
+
+    = f.input "tagline", 
+      :label => I18n.t("active_admin.settings.tagline"), 
+      :input_html => { :value => Setting.get("tagline", nil, true) }
+
+    / # deprecated "selected", using regular helpers instead
+    / # https://github.com/justinfrench/formtastic/wiki/Deprecation-of-:selected-option
+    %li
+      %label{:for => "banner_entity_type"}
+        = I18n.t("active_admin.settings.default_language")
+      = f.select "site_language", options_for_select(%w(en es), Setting.get("site_language", nil, true) )
+
+    = f.input "seo_keywords", 
+      :label => I18n.t("active_admin.settings.seo_keywords"), 
+      :hint => I18n.t("active_admin.pages.seo_keywords"), 
+      :input_html => { :value => Setting.get("seo_keywords", nil, true) }
+
+    = f.input "seo_description", 
+      :as => "text",
+      :label => I18n.t("active_admin.settings.seo_description"), 
+      :hint => I18n.t("active_admin.pages.seo_description"), 
+      :input_html => { :value => Setting.get("seo_description", nil, true), :rows => 2, :class => "autogrow" }
+
+    = f.input "robots_txt", 
+      :as => "text",
+      :label => I18n.t("active_admin.settings.robots_txt"), 
+      :hint => I18n.t("active_admin.settings.robots_hint"),
+      :input_html => { :value => Setting.get("robots_txt", nil, true), :rows => 2, :class => "autogrow" }
+
+  = f.inputs I18n.t("active_admin.settings.mailers") do
+
+    = f.input "mailer_sender", 
+      :label => I18n.t("active_admin.settings.mailer_sender"), 
+      :input_html => { :value => Setting.get("mailer_sender", nil, true) }
+
+    = f.input "support_email", 
+      :label => I18n.t("active_admin.settings.support_email"), 
+      :input_html => { :value => Setting.get("support_email", nil, true) }
+
+  = f.inputs I18n.t("active_admin.settings.api_keys") do
+
+    = f.input "twitter_key", 
+      :label => I18n.t("active_admin.settings.twitter_key"),
+      :input_html => { :value => Setting.get("twitter_key", nil, true) }
+
+    = f.input "twitter_secret", 
+      :label => I18n.t("active_admin.settings.twitter_secret"),
+      :input_html => { :value => Setting.get("twitter_secret", nil, true) }
+
+    = f.input "facebook_key", 
+      :label => I18n.t("active_admin.settings.facebook_key"),
+      :input_html => { :value => Setting.get("facebook_key", nil, true) }
+
+    = f.input "facebook_secret", 
+      :label => I18n.t("active_admin.settings.facebook_secret"),
+      :input_html => { :value => Setting.get("facebook_secret", nil, true) }
+
+    = f.input "aws_key", 
+      :label => I18n.t("active_admin.settings.aws_key"),
+      :input_html => { :value => Setting.get("aws_key", nil, true) }
+
+    = f.input "aws_secret", 
+      :label => I18n.t("active_admin.settings.aws_secret"),
+      :input_html => { :value => Setting.get("aws_secret", nil, true) }
+
+  = f.actions do
+    = f.action :submit, :as => :input, :label => I18n.t("active_admin.settings.save_settings")

@@ -141,7 +141,8 @@ ActiveAdmin.setup do |config|
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
   config.register_javascript '/js/nestedsortables/jquery.mjs.nestedSortable.js'
-  config.register_javascript '/js/nestedsortables/menu.js'
+  config.register_javascript '/js/jquery.autogrowtextarea.min.js'  
+  config.register_javascript '/js/javascripts.js'
 
   # == CSV options
   #

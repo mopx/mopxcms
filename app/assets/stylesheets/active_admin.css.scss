@@ -55,15 +55,19 @@ $table-stripe-color: lighten($primary-color, 75%) !default;
 $BreeSerif: "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $DroidSans: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-body.active_admin {
-  background: none repeat scroll 0 0 #73A879;
-  font-family: $DroidSans;
+body.logged_in {
   #wrapper {
     background-color: #fff;
     display: table;
     margin: 30px;
     width: 96%;
     @include shadow(0, 3px, 0, rgba(0,0,0,0.2));
+  }
+}
+body.active_admin {
+  background: none repeat scroll 0 0 #73A879;
+  font-family: $DroidSans;
+  #wrapper {
     #header {
       h1#site_title {
         font-family: $BreeSerif;

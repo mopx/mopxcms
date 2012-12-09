@@ -4,10 +4,10 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= site_title
+    %title= page_title
     = csrf_meta_tags
-    %meta{:content => @meta_keywords.present? ? @meta_keywords : current_site['meta_keywords'], :name => "keywords"}
-    %meta{:content => @meta_description.present? ? @meta_description : current_site['meta_description'], :name => "description"}
+    %meta{:content => !@meta_keywords.blank? ? @meta_keywords : current_site['meta_keywords'], :name => "keywords"}
+    %meta{:content => !@meta_description.blank? ? @meta_description : current_site['meta_description'], :name => "description"}
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
@@ -35,5 +35,5 @@
             = render :partial => "pages/sidebar"
       %footer
         %p
-          = "© 2012 #{current_site['site_title']}."
+          = "© #{Time.now.year} #{current_site['site_title']}."
     = javascript_include_tag "application"

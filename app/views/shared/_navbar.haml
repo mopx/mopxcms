@@ -2,7 +2,7 @@
   %span.icon-bar
   %span.icon-bar
   %span.icon-bar
-= link_to "mopxcms", root_path, :class => "brand"
+= link_to current_site['site_title'], root_path, :class => "brand"
 .container.nav-collapse
   = get_menu("main_menu", "nav")
   %ul.nav.pull-right
