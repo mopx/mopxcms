@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208032412) do
+ActiveRecord::Schema.define(:version => 20121210052044) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,14 +53,24 @@ ActiveRecord::Schema.define(:version => 20121208032412) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "pages", :force => true do |t|
+  create_table "page_translations", :force => true do |t|
+    t.integer  "page_id"
+    t.string   "locale"
     t.string   "title"
-    t.string   "slug"
     t.text     "body"
     t.string   "meta_keywords"
     t.text     "meta_description"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  add_index "page_translations", ["locale"], :name => "index_page_translations_on_locale"
+  add_index "page_translations", ["page_id"], :name => "index_page_translations_on_page_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "settings", :force => true do |t|
@@ -118,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20121208032412) do
     t.string   "event",      :null => false
     t.string   "whodunnit"
     t.text     "object"
+    t.string   "locale"
     t.datetime "created_at"
   end
 

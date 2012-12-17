@@ -1,5 +1,5 @@
 !!! 5
-%html(lang="en")
+%html{:lang => I18n.locale}
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
@@ -33,7 +33,5 @@
         .span3
           .sidebar-nav
             = render :partial => "pages/sidebar"
-      %footer
-        %p
-          = "© #{Time.now.year} #{current_site['site_title']}."
+      = render :partial => "shared/footer"
     = javascript_include_tag "application"

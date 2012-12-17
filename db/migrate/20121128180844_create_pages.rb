@@ -1,13 +1,18 @@
 class CreatePages < ActiveRecord::Migration
-  def change
+  def up
     create_table :pages do |t|
-      t.string :title
       t.string :slug
-      t.text :body
-      t.string :meta_keywords
-      t.text :meta_description
 
       t.timestamps
     end
+    Page.create_translation_table! :title => :string,
+      :body => :text,
+      :meta_keywords => :string,
+      :meta_description => :text
+  end
+
+  def down
+    drop_table :pages
+    Page.drop_translation_table!
   end
 end

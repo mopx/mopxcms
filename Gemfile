@@ -22,6 +22,7 @@ gem 'less-rails'
 
 # javascript
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # admin
 gem 'activeadmin'
@@ -31,8 +32,10 @@ gem 'sass-rails',   '~> 3.2.3'
 # CMS
 gem 'friendly_id'
 gem 'awesome_nested_set'
+gem 'globalize3', :git => 'git@github.com:svenfuchs/globalize3.git' # I18n fields
+gem 'ActiveAdmin-Globalize3-inputs', :git => 'git://github.com/mimimi/ActiveAdmin-Globalize3-inputs.git'
 
-gem 'RedCloth'
+gem 'RedCloth' # Textile
 
 # auditing / versioning
 gem 'paper_trail'

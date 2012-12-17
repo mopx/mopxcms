@@ -1,3 +1,4 @@
+# encoding: utf-8
 module ApplicationHelper
 
   def flash_messages
@@ -28,7 +29,7 @@ module ApplicationHelper
 
   def current_site
     HashWithIndifferentAccess.new({
-      :site_title => Setting.get("site_name", nil, true),
+      :site_name => Setting.get("site_name", nil, true),
       :tagline => Setting.get("tagline", nil, true),
       :meta_keywords => Setting.get("seo_keywords", nil, true),
       :meta_description => Setting.get("seo_description", nil, true)
@@ -36,7 +37,11 @@ module ApplicationHelper
   end
 
   def page_title
-    @title.present? ? @title + " | " + current_site['site_title'] : current_site['site_title'] + " | " + current_site['tagline']
+    if !@title.blank?
+      @title + " — " + current_site['site_name']
+    else
+      current_site['site_name'] + " — " + current_site['tagline']
+    end
   end
 
   def site_link(site)
@@ -45,6 +50,19 @@ module ApplicationHelper
 
   def support_link(site)
     mail_to Setting.get("support_email", nil, true)
+  end
+
+  def language_selector
+    links = []
+    I18n.available_locales.each do |locale|
+      locale_key = "translation.#{locale}"
+      if locale == I18n.locale
+        links << link_to(I18n.t(locale_key), "#", class: "btn btn-mini disabled")
+      else
+        links << link_to(I18n.t(locale_key), url_for(locale: locale.to_s), class: "btn btn-mini")
+      end
+    end
+    links.join("\n").html_safe
   end
 
 end

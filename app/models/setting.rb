@@ -30,7 +30,7 @@ class Setting < ActiveRecord::Base
     setting = Setting.where(:key => key)
       .where(:system => system)
       .where(:user_id => user_id).first
-    setting && setting.value ? setting.value : nil
+    setting && setting.value ? setting.value : ""
   end
 
   # unset setting by deleting row

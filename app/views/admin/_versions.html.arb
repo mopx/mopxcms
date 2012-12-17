@@ -1,3 +1,4 @@
+# TODO: FIX THIS! Multilanguage support is broken, not saving correct locale on save
 if !resource.versions.nil? && resource.versions.length > 1
   current_version = (params[:version] || resource.versions.length).to_i
 

@@ -6,12 +6,15 @@ class ApplicationController < ActionController::Base
 
   # TODO: user preferences, let the user select the locale
   before_filter :set_locale
+
   def set_locale
-    # I18n.locale = params[:locale]
-    # harcoded to english
-    I18n.locale = "en"
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
+  def default_url_options(options={})
+    {:locale => I18n.locale}
+  end  
+  
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end

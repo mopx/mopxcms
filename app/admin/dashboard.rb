@@ -26,7 +26,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel I18n.t("active_admin.recently_updated_content") do
           table_for Version.order('id desc').limit(10) do
-            column I18n.t("active_admin.item") do |v| link_to v.item.title, v.item.admin_permalink end
+            column I18n.t("active_admin.item") do |v| link_to v.item.title, v.item.page.admin_link end
             column I18n.t("active_admin.type") do |v| v.item_type.underscore.humanize end
             column I18n.t("active_admin.modified_at") do |v| v.created_at.to_s :long end
             column I18n.t("active_admin.responsible") do |v| link_to User.find(v.whodunnit).email, admin_user_path(User.find(v.whodunnit)) end

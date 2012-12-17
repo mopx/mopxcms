@@ -52,6 +52,7 @@ Mopxcms::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.default_url_options = { :host => ENV['MAIL_HOST'] }
+  Rails.application.routes.default_url_options = { :host => ENV['MAIL_HOST'] }
 
   # Enable threaded mode
   # config.threadsafe!

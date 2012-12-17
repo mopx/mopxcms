@@ -17,7 +17,7 @@ class MenuItem < ActiveRecord::Base
 	  else
 	  	# TODO: use routes
 	  	# url_for(self.page)
-	  	return "/#{self.page.slug}"
+	  	return "/#{I18n.locale}/#{self.page.slug}"
 	  end
   end
 

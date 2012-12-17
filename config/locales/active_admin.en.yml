@@ -28,10 +28,12 @@ en:
     pages:
       title: Pages
       url: URL
+      path: Path
       formatted_with_textile: "Formatted with Textile. %{reference_link}"
       reference_guide: Reference Guide
       seo_keywords: "SEO: Comma separated keywords"
       seo_description: "SEO: Description"
+      view_public: View Public Page
     users:
       title: Users
       user_details: User Details
@@ -67,4 +69,3 @@ en:
       save_settings: Save Settings
       successfully_saved: Successfully saved the settings
       error_saving: Error saving the settings
-

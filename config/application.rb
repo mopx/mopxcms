@@ -37,7 +37,8 @@ module Mopxcms
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :en
+    config.i18n.available_locales = [:en, :es]
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -81,6 +82,9 @@ module Mopxcms
     # less as default css precompiler
     config.app_generators.stylesheet_engine :less # no effect
     config.sass.preferred_syntax = :less # weird hack https://github.com/metaskills/less-rails/issues/42
+
+    # Globalize translations fallback
+    config.i18n.fallbacks = true
 
   end
 end
